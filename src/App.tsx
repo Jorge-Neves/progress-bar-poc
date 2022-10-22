@@ -1,8 +1,14 @@
 import React, { FC, useState, useEffect, useRef } from 'react';
 import './App.css';
 
+enum ControlOptions {
+  BUTTONS = 'buttons',
+  SLIDER = 'slider',
+}
+
 const App: FC = () => {
   const [percentage, setPercentage] = useState<string>('50%');
+  const [selectedControl, setSelectedControl] = useState<string>('buttons');
 
   const progressBarRef = useRef<HTMLDivElement | null>(null);
   const progressBarRef2 = useRef<HTMLDivElement | null>(null);
@@ -15,9 +21,9 @@ const App: FC = () => {
   });
 
   return (
-    <div className="App">
-      <div>
-        <div>
+    <>
+      <div className="section-container">
+        <div className="section">
           <p>Click me!</p>
           <div>
             <button type="button" onClick={() => setPercentage('10%')}>
@@ -37,13 +43,20 @@ const App: FC = () => {
             </button>
           </div>
         </div>
+        <div className="section">
+          <p>Slide me!</p>
+          <div>
+            <input type="range" max="100" min="0" />
+          </div>
+        </div>
       </div>
-      <div>
-        <div>
+      <div className="section-container">
+        <div className="section">
+          <p>percentage: {percentage}</p>
           <div ref={progressBarRef} className="progress-bar" />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

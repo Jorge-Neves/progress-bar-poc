@@ -3,8 +3,52 @@
   --width-variable: attr(data-percentage);
 }
 
+.section-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  min-width: 100%;
+  min-height: 100vh;
+  margin-right: 2rem;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 50%;
+  min-height: 100vh;
+}
+
+.buttom-row {
+  display: flex;
+  flex-direction: row;
+}
+
 .progress-bar {
   border: 10px solid rgb(56, 102, 255);
   border-radius: 30px;
   transition: all 1s linear;
+}
+
+@media screen and (max-width: 1000px) {
+  .section-container {
+    flex-direction: column;
+    margin-right: 0;
+  }
+
+  .section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    min-height: 100vh;
+  }
 }
